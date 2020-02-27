@@ -5,7 +5,9 @@ This is a dynamic-programming solution to the matrix-chain order problem of want
 ## Usage
 
 To use this application/algorithm, first clone it to your desktop, and open any IDE of your choice (or just use Notepad and the terminal; I couldn't care less), Then, upon execution, you have to enter your input in a specific way. Take for instance the following input:
+
 5 2 5 4 1 10
+
 This input describes *four* matrices with the following dimensions:
 
 - A<sub>1</sub>: 2 x 5
