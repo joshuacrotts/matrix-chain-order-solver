@@ -45,7 +45,7 @@ public class MatrixChain {
 
         printDimensions(matrixDimensions);
         
-        System.out.println(findMinOperations(matrixDimensions, true, true));
+        System.out.println(findMinOperations(matrixDimensions, true, true, true));
     }
 
     /**
@@ -54,9 +54,13 @@ public class MatrixChain {
      * @param matrixDimensions - array of dimensions {A, B, C, D, ...}
      * @param printOptimalParenthesis - boolean for if the user wants to be able to see the optimal set of parenthesis.
      * @param printMat - boolean for if the user wants to see the DP matrix.
+     * @param printOperations - prints out each step of the multiplication and k-value choice.
      * @return min number of operations.
      */
-    public static int findMinOperations(int[] matrixDimensions, boolean printOptimalParenthesis, boolean printMat) {
+    public static int findMinOperations(int[] matrixDimensions, 
+                                        boolean printOptimalParenthesis, 
+                                        boolean printMat,
+                                        boolean printOperations) {
         int numMatrices = matrixDimensions.length - 1;
 
         //  DP matrix.
@@ -101,17 +105,26 @@ public class MatrixChain {
             //
             for (int i = 0; i < numMatrices - L; i++) {
                 int j = i + L;
-
+                System.out.printf("m(i=%d, j=%d):\n", i+1, j+1);
                 m[i][j] = Integer.MAX_VALUE;
                 for (int k = i; k < j; k++) {
                     
                     //  Perform the matrix multiplication 
                     //  q = m[i][k] + m[k + 1][j] + (r[i] * r[k + 1] * r[j + 1]
                     int mult = m[i][k] + m[k + 1][j] + (rValues[i] * rValues[k + 1] * rValues[j + 1]);
+                    
                     if (mult < m[i][j]) {
                         m[i][j] = mult;
                         kValues[i][j] = k;
                     }
+                    
+                    if(printOperations) {
+                        System.out.printf("\t k=%d: = m(i=%d, k=%d) + m(k+1=%d, j=%d) + (r%d * r%d * r%d): %d\n", k + 1, i+1, k+1, k+1+1, j+1, i, k+1, j+1, mult);
+                    }
+                }
+                
+                if(printOperations) {
+                    System.out.printf("\tOptimal k-value for m(i=%d, j=%d) is k=%d.\n", i+1, j+1, kValues[i][j] + 1);
                 }
             }
         }
