@@ -1,6 +1,6 @@
 # Matrix Chain Multiplication
 
-This is a dynamic-programming solution to the matrix-chain order problem of wanting to find the minimum number of operations when multiplying *n* matrices together. As we have seen, this is by default an *O*(*n*!) problem, and hence is not solvable with any reasonable input. However, when using a native recursive solution, this turns into *O*(3<sup>*n*</sup>). So, while an improvement over the factorial algorithm, this is still painfully slow on inputs larger than a few hundred or so. Now comes the dynamic-programming solution, reducing our time-complexiy in the worst-case to *O*(*n*<sup>3</sup>), a *massive* upgrade. 
+This is a dynamic-programming solution to the matrix-chain order problem of wanting to find the minimum number of operations when multiplying *n* matrices together. As we have seen, this is by default an *O*(*n*!) problem, and hence is not solvable with any reasonable input. However, when using a native recursive solution, this turns into *O*(3<sup>*n*</sup>). So, while an improvement over the factorial algorithm, this is still painfully slow on inputs larger than a few hundred or so. Now comes the dynamic-programming solution, reducing our time-complexiy to *O*(*n*<sup>3</sup>) in the worst-case, a *massive* upgrade. 
 
 ## Usage
 
