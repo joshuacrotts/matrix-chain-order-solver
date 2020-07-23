@@ -13,7 +13,7 @@ This input describes *four* matrices with the following dimensions:
 - A<sub>1</sub>: 2 x 5
 - A<sub>2</sub>: 5 x 4
 - A<sub>3</sub>: 4 x 1
-- A<sub>4</sub>: 4 x 10
+- A<sub>4</sub>: 1 x 10
 
 We use the input as described above to eliminate the possibility of entering a non-multipliable combination of matrices.
 
